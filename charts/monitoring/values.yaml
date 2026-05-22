@@ -12,7 +12,7 @@ kube-prometheus-stack:
       enabled: true
       ingressClassName: nginx
       hosts:
-        - grafana.law-ai.example.com
+        - grafana.law-ai.kodetechm.com
     dashboardProviders:
       dashboardproviders.yaml:
         apiVersion: 1
@@ -62,7 +62,7 @@ kube-prometheus-stack:
     config:
       global:
         resolve_timeout: 5m
-        slack_api_url: "https://hooks.slack.com/services/YOUR/SLACK/WEBHOOK"
+        slack_api_url: "https://hooks.slack.com/services/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"
       route:
         group_by: ["alertname", "namespace"]
         group_wait: 30s

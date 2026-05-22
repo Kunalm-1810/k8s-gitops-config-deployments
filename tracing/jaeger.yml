@@ -21,6 +21,7 @@ spec:
               value: "true"
           ports:
             - containerPort: 16686
+            - containerPort: 4317
             - containerPort: 14250
             - containerPort: 14268
 ---
@@ -33,6 +34,9 @@ spec:
   selector:
     app: jaeger
   ports:
+    - name: otlp-grpc
+      port: 4317
+      targetPort: 4317
     - name: grpc
       port: 14250
       targetPort: 14250
