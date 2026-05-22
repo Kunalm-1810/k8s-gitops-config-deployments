@@ -10,7 +10,7 @@ service:
 ingress:
   enabled: true
   host: law-ai.kodetechm.com
-  path: /fe
+  path: /
 resources:
   requests:
     cpu: 100m
