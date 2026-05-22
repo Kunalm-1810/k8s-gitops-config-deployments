@@ -35,7 +35,7 @@ data:
           "gridPos": { "h": 8, "w": 12, "x": 0, "y": 4 },
           "targets": [{
             "expr": "increase(kube_pod_container_status_restarts_total{namespace='production'}[1h])",
-            "legendFormat": "{{ pod }}"
+            "legendFormat": "__pod__"
           }]
         },
         {
@@ -44,7 +44,7 @@ data:
           "gridPos": { "h": 8, "w": 12, "x": 12, "y": 4 },
           "targets": [{
             "expr": "sum(rate(container_cpu_usage_seconds_total{namespace='production'}[5m])) by (pod)",
-            "legendFormat": "{{ pod }}"
+            "legendFormat": "__pod__"
           }]
         },
         {
@@ -53,7 +53,7 @@ data:
           "gridPos": { "h": 8, "w": 12, "x": 0, "y": 12 },
           "targets": [{
             "expr": "sum(container_memory_working_set_bytes{namespace='production'}) by (pod)",
-            "legendFormat": "{{ pod }}"
+            "legendFormat": "__pod__"
           }]
         },
         {
@@ -62,7 +62,7 @@ data:
           "gridPos": { "h": 8, "w": 12, "x": 12, "y": 12 },
           "targets": [{
             "expr": "sum(rate(http_requests_total{namespace='production'}[5m])) by (service)",
-            "legendFormat": "{{ service }}"
+            "legendFormat": "__service__"
           }]
         }
       ],
