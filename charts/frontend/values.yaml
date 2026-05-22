@@ -9,7 +9,7 @@ service:
   targetPort: 80
 ingress:
   enabled: true
-  host: law-ai.example.com
+  host: law-ai.kodetechm.com
   path: /fe
 resources:
   requests:
