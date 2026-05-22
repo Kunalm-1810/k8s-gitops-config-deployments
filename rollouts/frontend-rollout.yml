@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: kunalmane/fe-law-ai-project:v1.2
+          image: kunalmane/fe-law-ai-project:v1.3
           ports:
             - containerPort: 80
           resources:
