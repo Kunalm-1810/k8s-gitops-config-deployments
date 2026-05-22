@@ -27,6 +27,8 @@ spec:
           envFrom:
             - secretRef:
                 name: {{ .Values.secretName }}
+            - configMapRef:
+                name: be-config
           resources:
             requests:
               cpu: {{ .Values.resources.requests.cpu }}

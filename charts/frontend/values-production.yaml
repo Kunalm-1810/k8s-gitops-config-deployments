@@ -1,7 +1,7 @@
 replicaCount: 2
 namespace: production
 image:
-  tag: v1.2
+  tag: v1.3
 ingress:
   enabled: true
   host: law-ai.kodetechm.com
