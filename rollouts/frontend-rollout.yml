@@ -1,0 +1,45 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
+metadata:
+  name: frontend-rollout
+  namespace: production
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: fe-law-ai
+  template:
+    metadata:
+      labels:
+        app: fe-law-ai
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/port: "80"
+    spec:
+      containers:
+        - name: frontend
+          image: kunalmane/fe-law-ai-project:v1.2
+          ports:
+            - containerPort: 80
+          resources:
+            requests:
+              cpu: 100m
+              memory: 128Mi
+            limits:
+              cpu: 500m
+              memory: 256Mi
+  strategy:
+    canary:
+      steps:
+        - setWeight: 20
+        - pause: { duration: 60s }
+        - setWeight: 40
+        - pause: { duration: 60s }
+        - setWeight: 80
+        - pause: { duration: 60s }
+      canaryService: fe-law-ai-canary
+      stableService: fe-law-ai-service
+      trafficRouting:
+        nginx:
+          stableIngress: fe-ingress
+

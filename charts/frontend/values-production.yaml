@@ -1,0 +1,21 @@
+replicaCount: 2
+namespace: production
+image:
+  tag: v1.2
+ingress:
+  enabled: true
+  host: law-ai.example.com
+  path: /fe
+resources:
+  requests:
+    cpu: 100m
+    memory: 128Mi
+  limits:
+    cpu: 500m
+    memory: 256Mi
+hpa:
+  enabled: true
+  minReplicas: 2
+  maxReplicas: 8
+  cpuUtilization: 60
+

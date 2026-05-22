@@ -1,0 +1,27 @@
+replicaCount: 2
+image:
+  repository: kunalmane/fe-law-ai-project
+  tag: v1.2
+  pullPolicy: IfNotPresent
+service:
+  type: ClusterIP
+  port: 80
+  targetPort: 80
+ingress:
+  enabled: true
+  host: law-ai.example.com
+  path: /fe
+resources:
+  requests:
+    cpu: 100m
+    memory: 128Mi
+  limits:
+    cpu: 500m
+    memory: 256Mi
+hpa:
+  enabled: true
+  minReplicas: 2
+  maxReplicas: 8
+  cpuUtilization: 60
+namespace: production
+

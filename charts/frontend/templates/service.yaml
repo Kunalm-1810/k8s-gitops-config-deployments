@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: fe-law-ai-service
+  namespace: {{ .Values.namespace }}
+  labels:
+    app: fe-law-ai
+spec:
+  type: {{ .Values.service.type }}
+  selector:
+    app: fe-law-ai
+  ports:
+    - port: {{ .Values.service.port }}
+      targetPort: {{ .Values.service.targetPort }}
+

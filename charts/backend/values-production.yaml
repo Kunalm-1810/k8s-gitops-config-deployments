@@ -1,0 +1,18 @@
+replicaCount: 2
+namespace: production
+image:
+  tag: v1.1
+resources:
+  requests:
+    cpu: 200m
+    memory: 256Mi
+  limits:
+    cpu: 1000m
+    memory: 512Mi
+hpa:
+  enabled: true
+  minReplicas: 2
+  maxReplicas: 8
+  cpuUtilization: 60
+secretName: law-ai-secret
+

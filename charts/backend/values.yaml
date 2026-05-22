@@ -1,0 +1,24 @@
+replicaCount: 2
+image:
+  repository: kunalmane/be-law-ai-project
+  tag: v1.1
+  pullPolicy: IfNotPresent
+service:
+  type: ClusterIP
+  port: 5000
+  targetPort: 5000
+resources:
+  requests:
+    cpu: 200m
+    memory: 256Mi
+  limits:
+    cpu: 1000m
+    memory: 512Mi
+hpa:
+  enabled: true
+  minReplicas: 2
+  maxReplicas: 8
+  cpuUtilization: 60
+namespace: production
+secretName: law-ai-secret
+

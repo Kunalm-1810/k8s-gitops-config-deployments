@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: be-law-ai
+  namespace: {{ .Values.namespace }}
+  labels:
+    app: be-law-ai
+spec:
+  type: {{ .Values.service.type }}
+  selector:
+    app: be-law-ai
+  ports:
+    - port: {{ .Values.service.port }}
+      targetPort: {{ .Values.service.targetPort }}
+
