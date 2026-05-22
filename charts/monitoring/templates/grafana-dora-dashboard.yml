@@ -9,7 +9,7 @@ data:
   dora-metrics.json: |
     {
       "title": "DORA Metrics",
-      "uid": "dora-metrics",
+      "uid": "dora-metrics-law-ai",
       "panels": [
         {
           "title": "Deployment Frequency",
