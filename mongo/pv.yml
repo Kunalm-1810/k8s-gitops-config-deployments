@@ -1,0 +1,18 @@
+# NOTE: On EKS with aws-ebs-csi-driver, PVs are dynamically provisioned.
+# This static PV using hostPath is only for local/minikube testing.
+# On EKS, delete this file — the PVC with storageClassName: gp2 handles provisioning automatically.
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: mongo-pv
+  labels:
+    app: mongo
+spec:
+  capacity:
+    storage: 5Gi
+  accessModes:
+    - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: gp2
+  hostPath:
+    path: /mnt/data/mongo-pv/

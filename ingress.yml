@@ -1,0 +1,28 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: law-ai-ingress
+  namespace: production
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
+    nginx.ingress.kubernetes.io/use-regex: "true"
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: law-ai.example.com
+    http:
+      paths:
+      - path: /fe(/|$)(.*)
+        pathType: ImplementationSpecific
+        backend:
+          service:
+            name: fe-law-ai-service
+            port:
+              number: 80
+      - path: /be(/|$)(.*)
+        pathType: ImplementationSpecific
+        backend:
+          service:
+            name: be-law-ai
+            port:
+              number: 5000

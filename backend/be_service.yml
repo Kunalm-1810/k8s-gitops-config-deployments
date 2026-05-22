@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: be-law-ai
+  namespace: production
+  labels:
+    app: be-law-ai
+spec:
+  type: ClusterIP
+  selector:
+    app: be-law-ai
+  ports:
+  - port: 5000
+    targetPort: 5000
