@@ -20,4 +20,6 @@ resources:
 namespace: production
 auth:
   secretName: law-ai-secret
+geminiApiKey: ""
+mongoUri: "bW9uZ29kYjovL21vbmdvOjI3MDE3L2xhd2Fp" # Base64 encoded 
 
